@@ -12,37 +12,27 @@ decimal salary = Convert.ToDecimal(Console.ReadLine());
 
 Console.WriteLine($"Имя: {name}  Возраст: {age}  Рост: {height}м  Зарплата: {salary}$"); */
 
-int a, b, c;
+int a, b;
 
 Console.WriteLine("Выберите \n sum, diff, product, quotient");
 string? toDo = Console.ReadLine();
 if (toDo == "")
-{
     Console.WriteLine("неверное условие");
-} 
 else
 {
     Console.WriteLine("Введите значения");
     a = Convert.ToInt32(Console.ReadLine());
     b = Convert.ToInt32(Console.ReadLine());
+
     if (toDo == "sum")
-    {
-        c = a + b;
-        Console.WriteLine($"Ответ: {c}");
-    }
+        Console.WriteLine($"Ответ: {a + b}");
+
     if (toDo == "diff")
-    {
-        c = a - b;
-        Console.WriteLine($"Ответ: {c}");
-    }
+        Console.WriteLine($"Ответ: {a - b}");
+
     if (toDo == "product")
-    {
-        c = a * b;
-        Console.WriteLine($"Ответ: {c}");
-    }
+        Console.WriteLine($"Ответ: {a * b}");
+
     if (toDo == "quotient")
-    {
-        c = a / b;
-        Console.WriteLine($"Ответ: {c}");
-    }
+        Console.WriteLine($"Ответ: {a / b}");
 }
