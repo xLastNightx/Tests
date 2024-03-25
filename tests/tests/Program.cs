@@ -18,21 +18,40 @@ Console.WriteLine("Выберите \n sum, diff, product, quotient");
 string? toDo = Console.ReadLine();
 if (toDo == "")
     Console.WriteLine("неверное условие");
-else
-{
+
     Console.WriteLine("Введите значения");
     a = Convert.ToInt32(Console.ReadLine());
     b = Convert.ToInt32(Console.ReadLine());
 
-    if (toDo == "sum")
-        Console.WriteLine($"Ответ: {a + b}");
+void sum()
+{
+    Console.WriteLine($"Ответ: {a + b}");
+}
+void diff()
+{
+    Console.WriteLine($"Ответ: {a - b}");
+}
+void product()
+{
+    Console.WriteLine($"Ответ: {a * b}");
+}
+void quotient()
+{
+    Console.WriteLine($"Ответ: {a / b}");
+}
 
-    if (toDo == "diff")
-        Console.WriteLine($"Ответ: {a - b}");
-
-    if (toDo == "product")
-        Console.WriteLine($"Ответ: {a * b}");
-
-    if (toDo == "quotient")
-        Console.WriteLine($"Ответ: {a / b}");
+switch (toDo)
+{
+    case "sum":
+        sum();
+        break;
+    case "diff":
+        diff();
+        break;
+    case "product":
+        product();
+        break;
+    case "quotient":
+        quotient();
+        break;
 }
