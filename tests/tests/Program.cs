@@ -16,27 +16,33 @@ int a, b;
 
 Console.WriteLine("Выберите \n sum, diff, product, quotient");
 string? toDo = Console.ReadLine();
-if (toDo == "")
-    Console.WriteLine("неверное условие");
-
-    Console.WriteLine("Введите значения");
-    a = Convert.ToInt32(Console.ReadLine());
-    b = Convert.ToInt32(Console.ReadLine());
 
 void sum()
 {
+    Console.WriteLine("Введите значения");
+    a = Convert.ToInt32(Console.ReadLine());
+    b = Convert.ToInt32(Console.ReadLine());
     Console.WriteLine($"Ответ: {a + b}");
 }
 void diff()
 {
+    Console.WriteLine("Введите значения");
+    a = Convert.ToInt32(Console.ReadLine());
+    b = Convert.ToInt32(Console.ReadLine());
     Console.WriteLine($"Ответ: {a - b}");
 }
 void product()
 {
+    Console.WriteLine("Введите значения");
+    a = Convert.ToInt32(Console.ReadLine());
+    b = Convert.ToInt32(Console.ReadLine());
     Console.WriteLine($"Ответ: {a * b}");
 }
 void quotient()
 {
+    Console.WriteLine("Введите значения");
+    a = Convert.ToInt32(Console.ReadLine());
+    b = Convert.ToInt32(Console.ReadLine());
     Console.WriteLine($"Ответ: {a / b}");
 }
 
@@ -53,5 +59,7 @@ switch (toDo)
         break;
     case "quotient":
         quotient();
+        break;
+    default: Console.WriteLine("Неверное условие");
         break;
 }
