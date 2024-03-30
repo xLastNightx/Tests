@@ -63,3 +63,17 @@ switch (toDo)
     default: Console.WriteLine("Неверное условие");
         break;
 }
+
+/*
+int DoOperation(int op, int a, int b)
+{
+    int result = op switch
+    {
+        1 => a + b,
+        2 => a - b,
+        3 => a * b,
+        _ => 0
+    };
+    return result;
+}
+*/

@@ -102,31 +102,121 @@ for (int i = 0; i < nums.Length; i++)
 }
 */
 
-void SayHelloRu()
+// Выходные данные
+/*
+void Sum(int x, int y, out int result)
 {
-    Console.WriteLine("Привет");
-}
-void SayHelloEn()
-{
-    Console.WriteLine("Hello");
-}
-void SayHelloFr()
-{
-    Console.WriteLine("Salut");
+    result = x + y;
 }
 
+int number;
 
-string language = "fr";
+Sum(10, 15, out number);
 
-switch (language)
+Console.WriteLine(number);   // 25
+*/
+
+// Params 
+/*
+void Sum(int initialValue, int numb, params int[] numbers)
 {
-    case "en":
-        SayHelloEn();
-        break;
-    case "ru":
-        SayHelloRu();
-        break;
-    case "fr":
-        SayHelloFr();
-        break;
+    int result = initialValue + numb;
+    foreach (var n in numbers)
+    {
+        result += n;
+    }
+    Console.WriteLine(result);
+}
+
+int[] nums = { 1, 2, 3, 4, 5 };
+Sum(10, 0, nums);  // число 10 - передается параметру initialValue
+Sum(1, 2, 3, 4);
+Sum(1, 2, 3);
+Sum(20, 1);
+*/
+
+// Факториал
+/*
+int Factorial(int n)
+{
+    if (n == 1) return 1;
+
+    return n * Factorial(n - 1);
+}
+int t = Factorial(6);
+Console.WriteLine(t);
+*/
+
+//Фибаначи 
+/*
+int Fibonachi(int n)
+{
+    if (n == 0 || n == 1) return n;
+
+    return Fibonachi(n - 1) + Fibonachi(n - 2);
+}
+
+int fib4 = Fibonachi(4);
+int fib5 = Fibonachi(5);
+int fib6 = Fibonachi(6);
+
+Console.WriteLine($"4 число Фибоначчи = {fib4}");
+Console.WriteLine($"5 число Фибоначчи = {fib5}");
+Console.WriteLine($"6 число Фибоначчи = {fib6}");
+*/
+
+
+// Enum
+/*
+DayTime now = DayTime.Evening;
+
+PrintMessage(now);                   // Добрый вечер
+PrintMessage(DayTime.Afternoon);    // Добрый день
+PrintMessage(DayTime.Night);        // Доброй ночи
+
+void PrintMessage(DayTime dayTime)
+{
+    switch (dayTime)
+    {
+        case DayTime.Morning:
+            Console.WriteLine("Доброе утро");
+            break;
+        case DayTime.Afternoon:
+            Console.WriteLine("Добрый день");
+            break;
+        case DayTime.Evening:
+            Console.WriteLine("Добрый вечер");
+            break;
+        case DayTime.Night:
+            Console.WriteLine("Доброй ночи");
+            break;
+    }
+}
+enum DayTime
+{
+    Morning,
+    Afternoon,
+    Evening,
+    Night
+}
+*/
+
+Person tom = new();
+Person bob = new("Bob");
+Person sam = new("Sam", 25);
+
+tom.Print();          // Имя: Неизвестно  Возраст: 18
+bob.Print();          // Имя: Bob  Возраст: 18
+sam.Print();          // Имя: Sam  Возраст: 25
+
+class Person
+{
+    public string name;
+    public int age;
+    public Person(string name = "Неизвестно", int age = 18)
+    {
+        this.name = name;
+        this.age = age;
+    }
+    public void Print() => Console.WriteLine($"Имя: {name}  Возраст: {age}");
 }
