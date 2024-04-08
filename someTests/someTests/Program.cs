@@ -201,6 +201,8 @@ enum DayTime
 }
 */
 
+// Класс
+/*
 Person tom = new();
 Person bob = new("Bob");
 Person sam = new("Sam", 25);
@@ -208,15 +210,153 @@ Person sam = new("Sam", 25);
 tom.Print();          // Имя: Неизвестно  Возраст: 18
 bob.Print();          // Имя: Bob  Возраст: 18
 sam.Print();          // Имя: Sam  Возраст: 25
+*/
+
+/*
+class State
+{
+    // все равно, что private string defaultVar;
+    string defaultVar = "default";
+    // поле доступно только из текущего класса
+    private string privateVar = "private";
+    // доступно из текущего класса и производных классов, которые определены в этом же проекте
+    protected private string protectedPrivateVar = "protected private";
+    // доступно из текущего класса и производных классов
+    protected string protectedVar = "protected";
+    // доступно в любом месте текущего проекта
+    internal string internalVar = "internal";
+    // доступно в любом месте текущего проекта и из классов-наследников в других проектах
+    protected internal string protectedInternalVar = "protected internal";
+    // доступно в любом месте программы, а также для других программ и сборок
+    public string publicVar = "public";
+
+    // по умолчанию имеет модификатор private
+    void Print() => Console.WriteLine(defaultVar);
+
+    // метод доступен только из текущего класса
+    private void PrintPrivate() => Console.WriteLine(privateVar);
+
+    // доступен из текущего класса и производных классов, которые определены в этом же проекте
+    protected private void PrintProtectedPrivate() => Console.WriteLine(protectedPrivateVar);
+
+    // доступен из текущего класса и производных классов
+    protected void PrintProtected() => Console.WriteLine(protectedVar);
+
+    // доступен в любом месте текущего проекта
+    internal void PrintInternal() => Console.WriteLine(internalVar);
+
+    // доступен в любом месте текущего проекта и из классов-наследников в других проектах
+    protected internal void PrintProtectedInternal() => Console.WriteLine(protectedInternalVar);
+
+    // доступен в любом месте программы, а также для других программ и сборок
+    public void PrintPublic() => Console.WriteLine(publicVar);
+}
+*/
+
+/* Аксессионные модификаторы
+ 
+Person person = new Person();
+ 
+// Устанавливаем свойство - срабатывает блок Set
+// значение "Tom" и есть передаваемое в свойство value
+person.Name = "Tom";
+ 
+// Получаем значение свойства и присваиваем его переменной - срабатывает блок Get
+string personName = person.Name;
+Console.WriteLine(personName);  // Tom
+ 
+class Person
+{
+    private string name = "Undefined";
+ 
+    public string Name
+    {
+        get
+        {
+            return name;    // возвращаем значение свойства
+        }
+        set
+        {
+            name = value;   // устанавливаем новое значение свойства
+        }
+    }
+}
+
+// 2
 
 class Person
 {
-    public string name;
-    public int age;
-    public Person(string name = "Неизвестно", int age = 18)
+    public string Name { get; set; }
+    public int Age { get; set; }
+         
+    public Person(string name, int age)
     {
-        this.name = name;
-        this.age = age;
+        Name = name;
+        Age = age;
     }
-    public void Print() => Console.WriteLine($"Имя: {name}  Возраст: {age}");
 }
+
+//3
+
+Person tom = new();
+ 
+Console.WriteLine(tom.Name);    // Tom
+Console.WriteLine(tom.Age);    // 37
+ 
+class Person
+{
+    public string Name { get; set; } = "Tom";
+    public int Age { get; set; } = 37;
+}
+
+//4
+class Person
+{
+    string name;
+    public string Name 
+    { 
+        get => name;
+        set => name = value; 
+    }
+}
+
+//5 
+class Person
+{
+    string name;
+     
+    // эквивалентно public string Name { get { return name; } }
+    public string Name => name;
+}
+*/
+
+// Static
+// Следует учитывать, что статические методы могут обращаться только к статическим членам класса.
+// Обращаться к нестатическим методам, полям, свойствам внутри статического метода мы не можем.
+/*
+Person bob = new(68);
+Person.CheckRetirementStatus(bob);
+ 
+class Person
+{
+    public int Age { get; set; }
+    static int retirementAge = 65;
+    public Person(int age) => Age = age;
+    public static void CheckRetirementStatus(Person person)
+    {
+        if (person.Age >= retirementAge)
+            Console.WriteLine("Уже на пенсии");
+        else
+            Console.WriteLine($"Сколько лет осталось до пенсии: {retirementAge - person.Age}") ;
+    }
+}
+*/
+
+// Преобразования
+/*
+Employee employee1 = new Employee("Tom", "Microsoft");
+Person person = employee1;   // преобразование от Employee к Person
+ 
+//Employee employee2 = person;    // так нельзя, нужно явное преобразование
+Employee employee2 = (Employee)person;  // преобразование от Person к Employee
+*/
