@@ -360,3 +360,55 @@ Person person = employee1;   // преобразование от Employee к Pe
 //Employee employee2 = person;    // так нельзя, нужно явное преобразование
 Employee employee2 = (Employee)person;  // преобразование от Person к Employee
 */
+
+// Виртуальные методы |virtual = переопределение = override sealed(запрет(в паре с override)|
+/*
+Person bob = new Person("Bob"); // Bob
+bob.Print(); // вызов метода Print из класса Person
+ 
+Employee tom = new Employee("Tom", "Microsoft"); // Tom работает в Microsoft
+tom.Print(); // вызов метода Print из класса Employee
+
+class Person
+{
+    public string Name { get; set; }
+    public Person(string name)
+    {
+        Name = name;
+    }
+    public virtual void Print()
+    {
+        Console.WriteLine(Name);
+    }
+}
+class Employee : Person
+{
+    public string Company { get; set; }
+    public Employee(string name, string company)
+        : base(name)
+    {
+        Company = company;
+    }
+    public override void Print()
+    {
+        Console.WriteLine($"{Name} работает в {Company}");
+    }
+}
+
+
+class Employee : Person
+{
+    public string Company { get; set; }
+  
+    public Employee(string name, string company)
+                : base(name)
+    {
+        Company = company;
+    }
+ 
+    public override sealed void Print()
+    {
+        Console.WriteLine($"{Name} работает в {Company}");
+    }
+}
+*/
