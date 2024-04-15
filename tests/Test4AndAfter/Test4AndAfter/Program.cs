@@ -353,4 +353,106 @@ mes();                  // 4. Вызываем метод
 void Hello() => Console.WriteLine("Hello METANIT.COM");
  
 delegate void Message(); // 1. Объявляем делегат 
- */
+
+///
+
+Operation operation = Add;      // делегат указывает на метод Add
+int result = operation(4, 5);   // фактически Add(4, 5)
+Console.WriteLine(result);      // 9
+     
+operation = Multiply;           // теперь делегат указывает на метод Multiply
+result = operation(4, 5);       // фактически Multiply(4, 5)
+Console.WriteLine(result);      // 20
+ 
+int Add(int x, int y) => x + y;
+ 
+int Multiply(int x, int y) => x * y;
+ 
+delegate int Operation(int x, int y); 
+
+// Добавление делегата
+Message message = Hello;
+message += HowAreYou;  // теперь message указывает на два метода
+message();              // вызываются оба метода - Hello и HowAreYou
+message -= HowAreYou;   // удаляем метод HowAreYou
+if (message != null) message(); // вызывается метод Hello
+ 
+void Hello() => Console.WriteLine("Hello");
+void HowAreYou() => Console.WriteLine("How are you?");
+ 
+// объединение деегатов
+
+delegate void Message();
+
+Message mes1 = Hello;
+Message mes2 = HowAreYou;
+Message mes3 = mes1 + mes2; // объединяем делегаты
+mes3(); // вызываются все методы из mes1 и mes2
+
+void Hello() => Console.WriteLine("Hello");
+void HowAreYou() => Console.WriteLine("How are you?");
+
+delegate void Message();
+
+// обобщение делегатов 
+// Здесь делегат Operation типизируется двумя параметрами типов. Параметр T представляет тип возвращаемого значения.
+// А параметр K представляет тип передаваемого в делегат параметра. Таким образом, этому делегату соответствует метод, 
+// который принимает параметр любого типа и возвращает значение любого типа.
+Operation<decimal, int> squareOperation = Square;
+decimal result1 = squareOperation(5);
+Console.WriteLine(result1);  // 25
+ 
+Operation<int, int> doubleOperation = Double;
+int result2 = doubleOperation(5);
+Console.WriteLine(result2);  // 10
+ 
+decimal Square(int n) => n * n;
+int Double(int n) => n + n;
+ 
+delegate T Operation<T, K>(K val);
+
+// делегаты - параметры методов 
+DoOperation(5, 4, Add);         // 9
+DoOperation(5, 4, Subtract);    // 1
+DoOperation(5, 4, Multiply);    // 20
+ 
+void DoOperation(int a, int b, Operation op)
+{
+    Console.WriteLine(op(a,b));
+}
+int Add(int x, int y) => x + y;
+int Subtract(int x, int y) => x - y;
+int Multiply(int x, int y) => x * y;
+ 
+delegate int Operation(int x, int y);
+
+// Возвращение делегатов из метода
+Operation operation = SelectOperation(OperationType.Add);
+Console.WriteLine(operation(10, 4));    // 14
+ 
+operation = SelectOperation(OperationType.Subtract);
+Console.WriteLine(operation(10, 4));    // 6
+ 
+operation = SelectOperation(OperationType.Multiply);
+Console.WriteLine(operation(10, 4));    // 40
+ 
+Operation SelectOperation(OperationType opType)
+{
+    switch (opType)
+    {
+        case OperationType.Add: return Add;
+        case OperationType.Subtract: return Subtract;
+        default: return Multiply;
+    }
+}
+ 
+int Add(int x, int y) => x + y;
+int Subtract(int x, int y) => x - y;
+int Multiply(int x, int y) => x * y;
+ 
+enum OperationType
+{
+    Add, Subtract, Multiply
+}
+delegate int Operation(int x, int y);
+*/
