@@ -12,6 +12,7 @@ else
 
     numbersInString(str);
 }
+
 void numbersInString(string str)
 {
     for (int index1 = 0; index1 < str.Length; index1++)
@@ -20,14 +21,12 @@ void numbersInString(string str)
     }
     Console.WriteLine($"Всего {count} уникальных символов");
 }
+
 int numb(int temp, int index1)
 {
     for (int index2 = 0; index2 < str.Length; index2++)
     {
-        if (str[index1] == str[index2])
-        {
-            temp++;
-        }
+        if (str[index1] == str[index2]) temp++;
     }
     if (temp == 1)
     {
