@@ -837,3 +837,14 @@
     Console.WriteLine(fn(5));   // 25
     Console.WriteLine(fn(6));   // 30
  */
+static bool IsLeapYear(int year)
+{
+    var newYear = new DateTime(year, 01, 01);
+    if (DateTime.IsLeapYear(newYear.Year))
+    {
+        Console.WriteLine("Yes");
+        return true;
+    }
+    else return false;
+}
+IsLeapYear(1600);
