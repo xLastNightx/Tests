@@ -479,28 +479,28 @@
     welcome();              // hello
 
 /// выражения 
-int[] integers = { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+    int[] integers = { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
  
 // найдем сумму чисел больше 5
-int result1 = Sum(integers, x => x > 5);
-Console.WriteLine(result1); // 30
+    int result1 = Sum(integers, x => x > 5);
+    Console.WriteLine(result1); // 30
  
 // найдем сумму четных чисел
-int result2 = Sum(integers, x => x % 2 == 0);
-Console.WriteLine(result2);  //20
+    int result2 = Sum(integers, x => x % 2 == 0);
+    Console.WriteLine(result2);  //20
  
-int Sum(int[] numbers, IsEqual func)
-{
-    int result = 0;
-    foreach (int i in numbers)
+    int Sum(int[] numbers, IsEqual func)
     {
-        if (func(i))
-            result += i;
+        int result = 0;
+        foreach (int i in numbers)
+        {
+            if (func(i))
+                result += i;
+        }
+        return result;
     }
-    return result;
-}
  
-delegate bool IsEqual(int x);
+    delegate bool IsEqual(int x);
 
 /// возвращение лямбда-выражения
     Operation operation = SelectOperation(OperationType.Add);
@@ -529,4 +529,311 @@ delegate bool IsEqual(int x);
 /// В данном случае метод SelectOperation() в качестве параметра принимает перечисление типа OperationType. 
 /// Это перечисление хранит три константы, каждая из которых соответствует определенной арифметической операции. 
 /// И в самом методе в зависимости от значения параметра возвращаем определенное лямбда-выражение.
+ */
+
+// события
+/* 
+     delegate void AccountHandler(string message);
+// объявление события
+    event AccountHandler Notify; 
+
+// вызов (проверка на null)
+    Notify("Произошло действие"); // или if(Notify !=null) Notify("Произошло действие"); или Notify?.Invoke("Произошло действие");
+
+// Пример: (вызов и определение)
+    account account = new Account(100);
+    account.Notify += DisplayMessage;   // Добавляем обработчик для события Notify
+    account.Put(20);    // добавляем на счет 20
+    Console.WriteLine($"Сумма на счете: {account.Sum}");
+    account.Take(70);   // пытаемся снять со счета 70
+    Console.WriteLine($"Сумма на счете: {account.Sum}");
+    account.Take(180);  // пытаемся снять со счета 180
+    Console.WriteLine($"Сумма на счете: {account.Sum}");
+ 
+    void DisplayMessage(string message) => Console.WriteLine(message);
+    
+    class Account
+    {
+        public delegate void AccountHandler(string message);
+        public event AccountHandler? Notify;              // 1.Определение события
+        public Account(int sum) => Sum = sum;
+        public int Sum { get; private set; }
+        public void Put(int sum)
+        {
+            Sum += sum;
+            Notify?.Invoke($"На счет поступило: {sum}");   // 2.Вызов события 
+        }
+        public void Take(int sum)
+        {
+            if (Sum >= sum)
+            {
+                Sum -= sum;
+                Notify?.Invoke($"Со счета снято: {sum}");   // 2.Вызов события
+            }
+            else
+            {
+                Notify?.Invoke($"Недостаточно денег на счете. Текущий баланс: {Sum}"); ;
+            }
+        }
+    }
+
+// управление обработчиками
+    Account acc = new Account(100);
+    acc.Notify += DisplayMessage;       // добавляем обработчик DisplayMessage
+    acc.Put(20);    // добавляем на счет 20
+    acc.Notify -= DisplayMessage;     // удаляем обработчик DisplayMessage
+    acc.Put(20);    // добавляем на счет 20
+ 
+    void DisplayMessage(string message) => Console.WriteLine(message);
+    
+    class Account
+    {
+        public delegate void AccountHandler(string message);
+        AccountHandler? notify;
+        public event AccountHandler Notify
+        {
+            add
+            {
+                notify += value;
+                Console.WriteLine($"{value.Method.Name} добавлен");
+            }
+            remove
+            {
+                notify -= value;
+                Console.WriteLine($"{value.Method.Name} удален");
+            }
+        }
+        public Account(int sum) => Sum = sum;
+        public int Sum { get; private set; }
+        public void Put(int sum)
+        {
+            Sum += sum;
+            notify?.Invoke($"На счет поступило: {sum}");   // 2.Вызов события 
+        }
+        public void Take(int sum)
+        {
+            if (Sum >= sum)
+            {
+                Sum -= sum;
+                notify?.Invoke($"Со счета снято: {sum}");   // 2.Вызов события
+            }
+            else
+            {
+                notify?.Invoke($"Недостаточно денег на счете. Текущий баланс: {Sum}"); ;
+            }
+        }
+    }
+ 
+// Еще пример (обработчики)
+    Account acc = new Account(100);
+    acc.Notify += DisplayMessage;
+    acc.Put(20);
+    acc.Take(70);
+    acc.Take(150);
+
+    void DisplayMessage(Account sender, AccountEventArgs e)
+    {
+        Console.WriteLine($"Сумма транзакции: {e.Sum}");
+        Console.WriteLine(e.Message);
+        Console.WriteLine($"Текущая сумма на счете: {sender.Sum}");
+    }
+
+    class AccountEventArgs
+    {
+        // Сообщение
+        public string Message { get; }
+        // Сумма, на которую изменился счет
+        public int Sum { get; }
+        public AccountEventArgs(string message, int sum)
+        {
+            Message = message;
+            Sum = sum;
+        }
+    }
+    class Account
+    {
+        public delegate void AccountHandler(Account sender, AccountEventArgs e);
+        public event AccountHandler? Notify;
+
+        public int Sum { get; private set; }
+
+        public Account(int sum) => Sum = sum;
+
+        public void Put(int sum)
+        {
+            Sum += sum;
+            Notify?.Invoke(this, new AccountEventArgs($"На счет поступило {sum}", sum));
+        }
+        public void Take(int sum)
+        {
+            if (Sum >= sum)
+            {
+                Sum -= sum;
+                Notify?.Invoke(this, new AccountEventArgs($"Сумма {sum} снята со счета", sum));
+            }
+            else
+            {
+                Notify?.Invoke(this, new AccountEventArgs("Недостаточно денег на счете", sum));
+            }
+        }
+    }
+*/
+
+// Ковариантность и контрвариантость    (Ковариантность делегата предполагает, что возвращаемым типом может быть производный
+//                                      тип. Контрвариантность делегата предполагает, что типом параметра может быть более универсальный тип.
+//                                      ковариантность - это от более производного к более общему типу (EmailMessage -> Message),
+//                                      а контрвариантность - от более общего к более производному типу (Message -> EmailMessage).)
+/* 
+    class Message
+    {
+        public string Text { get; }
+        public Message(string text) => Text = text;
+        public virtual void Print() => Console.WriteLine($"Message: {Text}");
+    }
+    class EmailMessage: Message
+    {
+        public EmailMessage(string text): base(text) { }
+        public override void Print() => Console.WriteLine($"Email: {Text}");
+    }
+    class SmsMessage : Message
+    {
+        public SmsMessage(string text) : base(text) { }
+        public override void Print() => Console.WriteLine($"Sms: {Text}");
+    }
+
+// co
+    // делегату с базовым типом передаем метод с производным типом
+    MessageBuilder messageBuilder = WriteEmailMessage; // ковариантность
+    Message message = messageBuilder("Hello");
+    message.Print();    // Email: Hello
+ 
+    EmailMessage WriteEmailMessage(string text) => new EmailMessage(text);
+ 
+    delegate Message MessageBuilder(string text);
+
+// contr
+    // делегату с производным типом передаем метод с базовым типом
+    EmailReceiver emailBox = ReceiveMessage; // контравариантность
+    emailBox(new EmailMessage("Welcome"));  // Email: Welcome
+ 
+    void ReceiveMessage(Message message) => message.Print();
+ 
+    delegate void EmailReceiver(EmailMessage message);
+
+// совмещение ко и контрвариантности с обобщенными делегатами
+    MessageConverter<Message, EmailMessage> toEmailConverter = (Message message) => new EmailMessage(message.Text);
+ 
+    MessageConverter<SmsMessage, Message> converter = toEmailConverter;
+    Message message = converter(new SmsMessage("Hello work"));
+    message.Print();    // Email: Hello work
+ 
+    delegate E MessageConverter<in M, out E>(M message);
+ */
+
+// Action    (Делегат Action представляет некоторое действие, которое ничего не возвращает)
+/* 
+    public delegate void Action()
+    public delegate void Action<in T>(T obj)
+
+    DoOperation(10, 6, Add);        // 10 + 6 = 16
+    DoOperation(10, 6, Multiply);   // 10 * 6 = 60
+ 
+    void DoOperation(int a, int b, Action<int, int> op) => op(a, b);
+ 
+    void Add(int x, int y) => Console.WriteLine($"{x} + {y} = {x + y}");
+    void Multiply(int x, int y) => Console.WriteLine($"{x} * {y} = {x * y}");
+ */
+
+// Predicate    (используется для сравнения, сопоставления некоторого объекта T определенному условию)
+/* 
+     delegate bool Predicate<in T>(T obj);
+
+    Predicate<int> isPositive = (int x) => x > 0;
+ 
+    Console.WriteLine(isPositive(20));
+    Console.WriteLine(isPositive(-20));
+ */
+
+// Func     (возвращает результат действия и может принимать параметры)
+/* 
+    TResult Func<out TResult>()
+    TResult Func<in T, out TResult>(T arg) 
+
+// Пример:
+    int result1 = DoOperation(6, DoubleNumber); // 12
+    Console.WriteLine(result1);
+ 
+    int result2 = DoOperation(6, SquareNumber); // 36
+    Console.WriteLine(result2);
+ 
+// Func<int, int> принимает int и возвращает int
+    int DoOperation(int n, Func<int, int> operation) => operation(n); 
+    int DoubleNumber(int n) => 2 * n;
+    int SquareNumber(int n) => n * n;
+
+// Еще пример func & лямбда-выражения:
+    Func<int, int, string> createString = (a, b) => $"{a}{b}";
+    Console.WriteLine(createString(1, 5));  // 15
+    Console.WriteLine(createString(3, 5));  // 35
+
+// Здесь переменная createString представляет лямбда-выражение, 
+// которое принимает два числа int и возвращает строку, то есть представляет делегат Func<int, int, string>.
+ */
+
+// Замыкание 
+/* 
+    var fn = Outer();   // fn = Inner, так как метод Outer возвращает функцию Inner
+    // вызываем внутреннюю функцию Inner
+    fn();   // 6
+    fn();   // 7
+    fn();   // 8
+ 
+    Action Outer()  // метод или внешняя функция
+    {
+        int x = 5;  // лексическое окружение - локальная переменная
+        void Inner()    // локальная функция
+        {
+            x++;        // операции с лексическим окружением
+            Console.WriteLine(x);
+        }
+        return Inner;   // возвращаем локальную функцию
+    }
+
+// тоже самое, но с лямбдой
+    var outerFn = () =>
+    {
+        int x = 10;
+        var innerFn = () => Console.WriteLine(++x);
+        return innerFn;
+    };
+ 
+    var fn = outerFn();   // fn = innerFn, так как outerFn возвращает innerFn
+    // вызываем innerFn
+    fn();   // 11
+    fn();   // 12
+    fn();   // 13
+
+// Применение внешних параметров в замыкании
+    var fn = Multiply(5);  
+ 
+    Console.WriteLine(fn(5));   // 25
+    Console.WriteLine(fn(6));   // 30
+ 
+    Operation Multiply(int n)
+    {
+        int Inner(int m)
+        {
+            return n * m;
+        }
+        return Inner;
+    }
+    delegate int Operation(int n);
+
+// с лямбдами
+    var multiply = (int n) => (int m) => n * m; 
+ 
+    var fn = multiply(5);  
+ 
+    Console.WriteLine(fn(5));   // 25
+    Console.WriteLine(fn(6));   // 30
  */
