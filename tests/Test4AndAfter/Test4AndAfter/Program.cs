@@ -837,14 +837,33 @@
     Console.WriteLine(fn(5));   // 25
     Console.WriteLine(fn(6));   // 30
  */
-static bool IsLeapYear(int year)
-{
-    var newYear = new DateTime(year, 01, 01);
-    if (DateTime.IsLeapYear(newYear.Year))
+
+/*
+    static string Reverse(string s)
     {
-        Console.WriteLine("Yes");
-        return true;
+        char[] charArray = s.ToCharArray();
+        Array.Reverse(charArray);
+        return new string(charArray);
     }
-    else return false;
+*/
+Console.WriteLine("Введите предложение");
+string? str = Console.ReadLine();
+
+if (str != null) Console.WriteLine(reverseWordsInString(str));
+else Console.WriteLine("Не верное значение");
+
+static string reverseWordsInString(string s)
+{
+    string[] massivWithWords = s.Split(' ');   
+    string readyString = "";
+    for (int i = 0; i < massivWithWords.Length; i++)
+    {
+        char[] charArray = massivWithWords[i].ToCharArray();
+        Array.Reverse(charArray);
+
+        readyString += new string(charArray);
+        readyString += " ";
+    }
+    readyString = readyString.Trim();
+    return readyString;
 }
-IsLeapYear(1600);
