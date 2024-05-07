@@ -2,12 +2,13 @@
 string? str = Console.ReadLine();
 
 if (str != null) Console.WriteLine(reverseWordsInString(str));
-else Console.WriteLine("Не верное значение");
+else Console.WriteLine("Неверное значение");
 
 static string reverseWordsInString(string stringFromConsole)
 {
     string[] massivWithWords = stringFromConsole.Split(' ');
     string readyString = "";
+
     for (int i = 0; i < massivWithWords.Length; i++)
     {
         char[] charArray = massivWithWords[i].ToCharArray();
@@ -17,5 +18,6 @@ static string reverseWordsInString(string stringFromConsole)
         readyString += " ";
     }
     readyString = readyString.Trim();
+
     return readyString;
 }
