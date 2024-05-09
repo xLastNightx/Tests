@@ -1,0 +1,14 @@
+D:\Мои_работы\C#\VScode\dotnet\helloapp\bin\Debug\net8.0\helloapp.exe
+D:\Мои_работы\C#\VScode\dotnet\helloapp\bin\Debug\net8.0\helloapp.deps.json
+D:\Мои_работы\C#\VScode\dotnet\helloapp\bin\Debug\net8.0\helloapp.runtimeconfig.json
+D:\Мои_работы\C#\VScode\dotnet\helloapp\bin\Debug\net8.0\helloapp.dll
+D:\Мои_работы\C#\VScode\dotnet\helloapp\bin\Debug\net8.0\helloapp.pdb
+D:\Мои_работы\C#\VScode\dotnet\helloapp\obj\Debug\net8.0\helloapp.GeneratedMSBuildEditorConfig.editorconfig
+D:\Мои_работы\C#\VScode\dotnet\helloapp\obj\Debug\net8.0\helloapp.AssemblyInfoInputs.cache
+D:\Мои_работы\C#\VScode\dotnet\helloapp\obj\Debug\net8.0\helloapp.AssemblyInfo.cs
+D:\Мои_работы\C#\VScode\dotnet\helloapp\obj\Debug\net8.0\helloapp.csproj.CoreCompileInputs.cache
+D:\Мои_работы\C#\VScode\dotnet\helloapp\obj\Debug\net8.0\helloapp.dll
+D:\Мои_работы\C#\VScode\dotnet\helloapp\obj\Debug\net8.0\refint\helloapp.dll
+D:\Мои_работы\C#\VScode\dotnet\helloapp\obj\Debug\net8.0\helloapp.pdb
+D:\Мои_работы\C#\VScode\dotnet\helloapp\obj\Debug\net8.0\helloapp.genruntimeconfig.cache
+D:\Мои_работы\C#\VScode\dotnet\helloapp\obj\Debug\net8.0\ref\helloapp.dll

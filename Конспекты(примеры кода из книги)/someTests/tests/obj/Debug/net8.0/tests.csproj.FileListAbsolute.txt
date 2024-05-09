@@ -1,0 +1,15 @@
+D:\Мои_работы\C#\tests\tests\bin\Debug\net8.0\tests.exe
+D:\Мои_работы\C#\tests\tests\bin\Debug\net8.0\tests.deps.json
+D:\Мои_работы\C#\tests\tests\bin\Debug\net8.0\tests.runtimeconfig.json
+D:\Мои_работы\C#\tests\tests\bin\Debug\net8.0\tests.dll
+D:\Мои_работы\C#\tests\tests\bin\Debug\net8.0\tests.pdb
+D:\Мои_работы\C#\tests\tests\obj\Debug\net8.0\tests.GeneratedMSBuildEditorConfig.editorconfig
+D:\Мои_работы\C#\tests\tests\obj\Debug\net8.0\tests.AssemblyInfoInputs.cache
+D:\Мои_работы\C#\tests\tests\obj\Debug\net8.0\tests.AssemblyInfo.cs
+D:\Мои_работы\C#\tests\tests\obj\Debug\net8.0\tests.csproj.CoreCompileInputs.cache
+D:\Мои_работы\C#\tests\tests\obj\Debug\net8.0\tests.sourcelink.json
+D:\Мои_работы\C#\tests\tests\obj\Debug\net8.0\tests.dll
+D:\Мои_работы\C#\tests\tests\obj\Debug\net8.0\refint\tests.dll
+D:\Мои_работы\C#\tests\tests\obj\Debug\net8.0\tests.pdb
+D:\Мои_работы\C#\tests\tests\obj\Debug\net8.0\tests.genruntimeconfig.cache
+D:\Мои_работы\C#\tests\tests\obj\Debug\net8.0\ref\tests.dll
