@@ -1,0 +1,15 @@
+D:\Мои_работы\C#\tests\Test4AndAfter\Test4AndAfter\bin\Debug\net8.0\Test4AndAfter.exe
+D:\Мои_работы\C#\tests\Test4AndAfter\Test4AndAfter\bin\Debug\net8.0\Test4AndAfter.deps.json
+D:\Мои_работы\C#\tests\Test4AndAfter\Test4AndAfter\bin\Debug\net8.0\Test4AndAfter.runtimeconfig.json
+D:\Мои_работы\C#\tests\Test4AndAfter\Test4AndAfter\bin\Debug\net8.0\Test4AndAfter.dll
+D:\Мои_работы\C#\tests\Test4AndAfter\Test4AndAfter\bin\Debug\net8.0\Test4AndAfter.pdb
+D:\Мои_работы\C#\tests\Test4AndAfter\Test4AndAfter\obj\Debug\net8.0\Test4AndAfter.GeneratedMSBuildEditorConfig.editorconfig
+D:\Мои_работы\C#\tests\Test4AndAfter\Test4AndAfter\obj\Debug\net8.0\Test4AndAfter.AssemblyInfoInputs.cache
+D:\Мои_работы\C#\tests\Test4AndAfter\Test4AndAfter\obj\Debug\net8.0\Test4AndAfter.AssemblyInfo.cs
+D:\Мои_работы\C#\tests\Test4AndAfter\Test4AndAfter\obj\Debug\net8.0\Test4AndAfter.csproj.CoreCompileInputs.cache
+D:\Мои_работы\C#\tests\Test4AndAfter\Test4AndAfter\obj\Debug\net8.0\Test4AndAfter.sourcelink.json
+D:\Мои_работы\C#\tests\Test4AndAfter\Test4AndAfter\obj\Debug\net8.0\Test4AndAfter.dll
+D:\Мои_работы\C#\tests\Test4AndAfter\Test4AndAfter\obj\Debug\net8.0\refint\Test4AndAfter.dll
+D:\Мои_работы\C#\tests\Test4AndAfter\Test4AndAfter\obj\Debug\net8.0\Test4AndAfter.pdb
+D:\Мои_работы\C#\tests\Test4AndAfter\Test4AndAfter\obj\Debug\net8.0\Test4AndAfter.genruntimeconfig.cache
+D:\Мои_работы\C#\tests\Test4AndAfter\Test4AndAfter\obj\Debug\net8.0\ref\Test4AndAfter.dll
