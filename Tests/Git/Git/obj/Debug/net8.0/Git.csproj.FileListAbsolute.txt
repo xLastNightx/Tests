@@ -1,0 +1,15 @@
+D:\Мои_работы\C#\tests\Git\Git\obj\Debug\net8.0\Git.GeneratedMSBuildEditorConfig.editorconfig
+D:\Мои_работы\C#\tests\Git\Git\obj\Debug\net8.0\Git.AssemblyInfoInputs.cache
+D:\Мои_работы\C#\tests\Git\Git\obj\Debug\net8.0\Git.AssemblyInfo.cs
+D:\Мои_работы\C#\tests\Git\Git\obj\Debug\net8.0\Git.csproj.CoreCompileInputs.cache
+D:\Мои_работы\C#\tests\Git\Git\obj\Debug\net8.0\Git.sourcelink.json
+D:\Мои_работы\C#\tests\Git\Git\bin\Debug\net8.0\Git.exe
+D:\Мои_работы\C#\tests\Git\Git\bin\Debug\net8.0\Git.deps.json
+D:\Мои_работы\C#\tests\Git\Git\bin\Debug\net8.0\Git.runtimeconfig.json
+D:\Мои_работы\C#\tests\Git\Git\bin\Debug\net8.0\Git.dll
+D:\Мои_работы\C#\tests\Git\Git\bin\Debug\net8.0\Git.pdb
+D:\Мои_работы\C#\tests\Git\Git\obj\Debug\net8.0\Git.dll
+D:\Мои_работы\C#\tests\Git\Git\obj\Debug\net8.0\refint\Git.dll
+D:\Мои_работы\C#\tests\Git\Git\obj\Debug\net8.0\Git.pdb
+D:\Мои_работы\C#\tests\Git\Git\obj\Debug\net8.0\Git.genruntimeconfig.cache
+D:\Мои_работы\C#\tests\Git\Git\obj\Debug\net8.0\ref\Git.dll
