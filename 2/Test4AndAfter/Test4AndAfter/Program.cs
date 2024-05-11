@@ -846,3 +846,27 @@
         return new string(charArray);
     }
 */
+
+
+// перегрузка
+class Sum
+{
+    protected int aaa(int a, int b)
+    {
+        return (a + b);
+    }
+    protected int aaa(int a, int b, int c)
+    {
+        return (a + b + c);
+    }
+
+}
+
+// переопределение
+class SumChild : Sum
+{
+    protected int aaa(int a, int b, int c)
+    {
+        return (a + b - c);
+    }
+}

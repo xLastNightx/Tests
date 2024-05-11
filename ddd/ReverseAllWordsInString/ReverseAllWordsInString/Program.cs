@@ -21,3 +21,4 @@ static string reverseWordsInString(string stringFromConsole)
 
     return readyString;
 }
+
