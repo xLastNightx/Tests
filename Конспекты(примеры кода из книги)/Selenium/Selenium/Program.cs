@@ -40,7 +40,7 @@ DefaultWait<IWebDriver> fluentWait = new DefaultWait<IWebDriver>(driver);
 
 fluentWait.Timeout = TimeSpan.FromSeconds(8);
 fluentWait.Until(d => {
-    int test = driver.FindElements(By.Id("email1")).ToList().Count();
+    int test = driver.FindElements(By.Id("email")).ToList().Count();
 
     // Новое сключение
     if (test <= 0)

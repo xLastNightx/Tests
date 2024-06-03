@@ -1,30 +1,12 @@
 ﻿using System;
 
-public class Kata
+namespace Git
 {
-    public int Add(int a, int b)
+    class Program
     {
-        return a + b;
-    }
-    public int Multiply(int a, int b)
-    {
-        return a * b;
-    }
-    public int Divide(int a, int b)
-    {
-        return a / b;
-    }
-    public int Mod(int a, int b)
-    {
-        return a % b;
-    }
-    public int Exponent(int a, int b)
-    {
-        int res = (int)Math.Pow(a, b);
-        return res;
-    }
-    public int Subt(int a, int b)
-    {
-        return a - b;
+        static void Main(string[] args)
+        {
+
+        }
     }
 }
