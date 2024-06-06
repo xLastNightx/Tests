@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "0aCQcmUAEo5i1uGkoYxSz/0Dy3IHFuW+Z5bRbxoL8V7bSGiVKCqyhfrLXWfdBGVfta8oAHqLW9ESeMBS06K+tw==",
+  "dgSpecHash": "TKLWs/LvEWGshWCghALE1ksx86QeIfkPxbmz41ANn+XbndJAhU0hEAJKxRac2MujHskr1g4s3C2H8tAyFFt1tg==",
   "success": true,
-  "projectFilePath": "D:\\Мои_работы\\C#\\HelloApp\\HelloApp\\HelloApp.csproj",
+  "projectFilePath": "D:\\Мои_работы\\C#\\Конспекты(примеры кода из книги)\\someTests\\HelloApp\\HelloApp\\HelloApp.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
