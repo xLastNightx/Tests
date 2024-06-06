@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Мои_работы\\C#\\HelloApp\\HelloApp\\HelloApp.csproj",
+      "projectUniqueName": "D:\\Мои_работы\\C#\\Конспекты(примеры кода из книги)\\someTests\\HelloApp\\HelloApp\\HelloApp.csproj",
       "projectName": "HelloApp",
-      "projectPath": "D:\\Мои_работы\\C#\\HelloApp\\HelloApp\\HelloApp.csproj",
+      "projectPath": "D:\\Мои_работы\\C#\\Конспекты(примеры кода из книги)\\someTests\\HelloApp\\HelloApp\\HelloApp.csproj",
       "packagesPath": "C:\\Users\\Milord\\.nuget\\packages\\",
-      "outputPath": "D:\\Мои_работы\\C#\\HelloApp\\HelloApp\\obj\\",
+      "outputPath": "D:\\Мои_работы\\C#\\Конспекты(примеры кода из книги)\\someTests\\HelloApp\\HelloApp\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

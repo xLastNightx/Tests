@@ -1,3 +1,16 @@
+<<<<<<< HEAD:tests/Git/Git/Program.cs
+﻿using System;
+
+namespace Git
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+        }
+    }
+=======
 ﻿using System;
 public static class Kata
 {
@@ -26,4 +39,5 @@ public static class Kata
     {
         return a - b;
     }
+>>>>>>> a788ec5cb90086892f69ac625c79092f011c81ff:Tests/Git/Git/Program.cs
 }
