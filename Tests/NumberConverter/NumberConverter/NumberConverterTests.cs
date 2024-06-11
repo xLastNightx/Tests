@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace NumberConverterTests
+﻿namespace NumberConverterTests
 {
     [TestFixture]
     public class Tests
@@ -17,7 +11,7 @@ namespace NumberConverterTests
         {
             Converter MainClass = new Converter();
             string result = MainClass.Convertation(converterNumber, converterSystem);
-            Assert.AreEqual(result, expectedResult);
+            Assert.AreEqual(expectedResult, result);
         }
     }
 }
